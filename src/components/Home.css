@@ -1,0 +1,54 @@
+/* src/components/Home.css */
+
+/* Contenedor principal de la página */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f7fc;  /* Fondo */
+}
+
+/* Contenedor de la imagen a la izquierda */
+.image-container {
+  flex: 1; /* La imagen ocupará 50% del espacio */
+  padding: 20px;
+}
+
+/* La imagen */
+.imagen {
+  width: 100%;  /* Asegura que la imagen ocupe todo el contenedor */
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción de la imagen sin distorsionarla */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del contenido a la derecha */
+.content-container {
+  flex: 1;  /* El contenido ocupará la otra mitad del espacio */
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los botones */
+.popup-btn {
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #4CAF50;  /* Verde */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.popup-btn:hover {
+  background-color: #388e3c;  /* Verde más oscuro al pasar el cursor */
+}

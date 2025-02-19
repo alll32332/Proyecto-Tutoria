@@ -1,0 +1,78 @@
+.expediente-container {
+  background-color: #f4f7fc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.expediente-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+}
+
+input, select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+  background-color: #45a049;
+}
+
+button.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Estilo para el recuadro de la imagen */
+.image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.image-thumbnail {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}

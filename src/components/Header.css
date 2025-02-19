@@ -1,0 +1,34 @@
+/* src/components/Header.css */
+.header {
+   
+    padding: 20px 20px;  /* Ajustamos el padding para tener espacio a los lados */
+    display: flex;  /* Usamos flexbox para alinear los elementos */
+    justify-content: space-between;  /* Espacio entre el título y el logo */
+    align-items: center;  /* Alineamos verticalmente los elementos */
+    background: linear-gradient(135deg, #34a853, #00796b); /* Gradiente verde */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .title-container {
+    flex-grow: 1;  /* Permite que el contenedor del título ocupe el espacio restante */
+    text-align: center;  /* Centra el texto dentro del contenedor */
+  }
+  
+  .header-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: flex-end;  /* Alinea el logo a la derecha */
+  }
+  
+  .logo{
+    width: 48px;  /* Ajusta el tamaño del logo */
+    height: auto;
+  }
+  
+  
