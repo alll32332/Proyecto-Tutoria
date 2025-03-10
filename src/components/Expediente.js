@@ -53,6 +53,8 @@ const Expediente = () => {
     }
   };
 
+  
+
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();

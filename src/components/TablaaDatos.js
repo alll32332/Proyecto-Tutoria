@@ -1,60 +1,100 @@
 import React, { useState } from "react"; 
-import './TablaaDatos.css'; // Importamos el archivo CSS
+import { useNavigate } from "react-router-dom"; // Importa useNavigate de react-router-dom
+import './TablaaDatos.css';
 
-function TablaDeDatos() {
-  // Definir los datos de la tabla (con valores iniciales en los campos editables)
+function TablaaDatos() {
+  const navigate = useNavigate(); // Usa el hook useNavigate
+
+  // Definir los datos de la tabla
   const [datos, setDatos] = useState([
-    { id: 1, nombre: "", fechaNacimiento: "", sexo: "", estudios: "", edad: 30, direccion: "Calle 123", telefono: "555-1234" },
-    { id: 2, nombre: "", fechaNacimiento: "", sexo: "", estudios: "", edad: 25, direccion: "Avenida 456", telefono: "555-5678" },
-    { id: 3, nombre: "", fechaNacimiento: "", sexo: "", estudios: "", edad: 40, direccion: "Calle 789", telefono: "555-9101" }
+    { id: 1, nombre: "", fechaNacimiento: "", sexo: "", estudios: "" },
+    { id: 2, nombre: "", fechaNacimiento: "", sexo: "", estudios: "" },
+    { id: 3, nombre: "", fechaNacimiento: "", sexo: "", estudios: "" },
+    { id: 4, nombre: "", fechaNacimiento: "", sexo: "", estudios: "" },
+    { id: 5, nombre: "", fechaNacimiento: "", sexo: "", estudios: "" },
+    { id: 6, nombre: "", fechaNacimiento: "", sexo: "", estudios: "" },
   ]);
 
-  // Función para manejar el cambio de los datos en las celdas
-  const handleChange = (e, id, field) => {
-    const updatedData = datos.map((dato) => 
-      dato.id === id ? { ...dato, [field]: e.target.value } : dato
-    );
-    setDatos(updatedData);
+  // Función para manejar el cambio de los campos de la tabla
+  const handleInputChange = (e, index, field) => {
+    const newDatos = [...datos];
+    newDatos[index][field] = e.target.value;
+    setDatos(newDatos);
+  };
+
+  const handleGuardar = () => {
+    // Aquí puedes manejar el guardar (por ejemplo, enviar los datos a la base de datos)
+    console.log("Datos guardados", datos);
+  };
+
+  const handleSiguiente = () => {
+    // Redirige a una nueva página cuando se hace clic en "Siguiente"
+    console.log("Ir a la siguiente página...");
+    navigate('/Desajustes'); // Reemplaza '/nueva-pagina' con la URL a la que quieras redirigir
   };
 
   return (
     <div className="tabla-container">
-     
+      
       <table className="tabla">
         <thead>
           <tr>
             <th>No.</th>
             <th>Nombre</th>
-            <th>Fecha de Nacimiento</th>
+            <th>Fecha de nacimiento</th>
             <th>Sexo</th>
             <th>Estudios</th>
-    
           </tr>
         </thead>
         <tbody>
-          {datos.map((dato) => (
+          {datos.map((dato, index) => (
             <tr key={dato.id}>
               <td>{dato.id}</td>
-
-              {/* Campos editables */}
-              <td><input type="text" value={dato.nombre} onChange={(e) => handleChange(e, dato.id, "nombre")} /></td>
-              <td><input type="date" value={dato.fechaNacimiento} onChange={(e) => handleChange(e, dato.id, "fechaNacimiento")} /></td>
               <td>
-                <select value={dato.sexo} onChange={(e) => handleChange(e, dato.id, "sexo")}>
-                  <option value="">Seleccionar...</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="femenino">Femenino</option>
+                <input
+                  type="text"
+                  value={dato.nombre}
+                  onChange={(e) => handleInputChange(e, index, "nombre")}
+                  placeholder="Nombre"
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  value={dato.fechaNacimiento}
+                  onChange={(e) => handleInputChange(e, index, "fechaNacimiento")}
+                />
+              </td>
+              <td>
+                <select
+                  value={dato.sexo}
+                  onChange={(e) => handleInputChange(e, index, "sexo")}
+                >
+                  <option value="">Seleccione</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
                 </select>
               </td>
-              <td><input type="text" value={dato.estudios} onChange={(e) => handleChange(e, dato.id, "estudios")} /></td>
-
-            
+              <td>
+                <input
+                  type="text"
+                  value={dato.estudios}
+                  onChange={(e) => handleInputChange(e, index, "estudios")}
+                  placeholder="Estudios"
+                />
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {/* Botones al final de la tabla */}
+      <div className="tabla-buttons">
+        <button onClick={handleGuardar} className="guardar-btn">Guardar</button>
+        <button onClick={handleSiguiente} className="siguiente-btn">Siguiente</button>
+      </div>
     </div>
   );
 }
 
-export default TablaDeDatos;
+export default TablaaDatos;
