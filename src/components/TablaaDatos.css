@@ -1,78 +1,79 @@
-/* Centrar el contenedor de la tabla */
+/* TablaaDatos.css */
+
+/* Contenedor de la tabla */
 .tabla-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 100% del alto de la ventana */
-    background-color: #f4f7fc; /* Fondo claro */
-    font-family: 'Arial', sans-serif; /* Fuente moderna */
-    color: #333; /* Color de texto */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  /* Estilo del título */
-  .tabla-title {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
     text-align: center;
+    margin-top: 50px; /* Aumenté la separación superior para dar más espacio entre la tabla y el Header */
+    margin-bottom: 50px; /* Añadí separación inferior para dar más espacio con el Footer */
   }
   
-  /* Estilo de la tabla */
+  /* Estilos para la tabla */
   .tabla {
     width: 80%;
-    border-collapse: collapse; /* Asegura que las celdas estén pegadas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
-    background-color: #fff; /* Fondo blanco */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 1px solid #ddd; /* Borde alrededor de la tabla */
+    margin: 0 auto;
+    border-collapse: collapse;
   }
   
-  /* Estilo de las celdas del encabezado */
+  /* Estilo para las celdas de la tabla */
+  .tabla th, .tabla td {
+    border: 1px solid #ddd;
+    padding: 10px; /* Aumenté el padding para hacer la tabla más espaciosa */
+    text-align: left;
+  }
+  
+  /* Estilo para los encabezados de la tabla */
   .tabla th {
-    background-color: #4CAF50; /* Verde para el encabezado */
-    color: white;
-    padding: 15px;
-    text-align: left;
-    font-size: 1.1rem;
-    border: 1px solid #ddd; /* Borde gris alrededor de cada celda del encabezado */
-    border-top-left-radius: 8px; /* Bordes redondeados en la parte superior */
-    border-top-right-radius: 8px;
+    background-color: hwb(300 53% 46%);
+    font-weight: bold;
   }
   
-  /* Estilo de las celdas de la tabla */
-  .tabla td {
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #ddd; /* Borde gris alrededor de cada celda */
-    font-size: 1rem;
+  /* Estilo para las filas pares de la tabla */
+  .tabla tr:nth-child(even) {
+    background-color:  #1f4c39; ;
   }
   
-  /* Asegurar que todas las filas tengan bordes horizontales visibles */
-  .tabla tr {
-    border-bottom: 1px solid #ddd; /* Borde horizontal entre filas */
-  }
-  
-  /* Hover en las filas de la tabla */
+  /* Estilo para el hover en las filas */
   .tabla tr:hover {
-    background-color: #f2f2f2;
+    background-color: #f1f1f1;
   }
   
-  /* Estilo de la última fila */
-  .tabla tr:last-child td {
-    border-bottom: none; /* Elimina el borde inferior de la última fila */
+  /* Estilo para los botones */
+  .tabla-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px; /* Añadí espacio superior entre la tabla y los botones */
   }
   
-  /* Mejorar la apariencia de la tabla en pantallas pequeñas */
-  @media screen and (max-width: 768px) {
-    .tabla {
-      width: 100%;
-    }
+  /* Botón de guardar */
+  .guardar-btn, .siguiente-btn {
+    padding: 20px 20px;
+    border: none;
+    border-radius: 25px; /* Bordes redondeados para un efecto más suave */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
   
-    .tabla th, .tabla td {
-      font-size: 0.9rem;
-      padding: 10px;
-    }
+  /* Estilo del botón "Guardar" */
+  .guardar-btn {
+    background: linear-gradient(45deg, #ff7eb9, #ff65a3, #ff577f); /* Degradado rosa */
+    color: white;
+    box-shadow: 0 4px 6px rgba(255, 87, 132, 0.4); /* Sombra suave */
+  }
+  
+  /* Estilo del botón "Siguiente" */
+  .siguiente-btn {
+    background: linear-gradient(45deg, #ff77b8, #ff6fb4, #ff5b94); /* Degradado rosa */
+    color: white;
+    box-shadow: 0 4px 6px rgba(39, 255, 28, 0.6); /* Sombra suave */
+  }
+  
+  /* Efecto hover para los botones */
+  .guardar-btn:hover, .siguiente-btn:hover {
+    transform: translateY(-3px); /* Efecto de desplazamiento hacia arriba */
+    box-shadow: 0 6px 12px rgba(39, 255, 28, 0.6); /* Aumenta la sombra para dar un efecto de elevación */
+    opacity: 0.9; /* Ligera transparencia en hover */
   }
   

@@ -8,6 +8,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Expediente from './components/Expediente';  // Asegúrate de que Expediente esté importado correctamente
 import TablaaDatos from './components/TablaaDatos';  // Importamos el nuevo componente para la tabla
+import Desajustes from './components/Desajustes'; // Asegúrate de que la ruta sea correcta
+import Sexpediente from './components/Sexpediente'; 
 
 
 
@@ -20,7 +22,8 @@ function App() {
           {/* Rutas para Login y Register */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
+         
+      
           {/* Ruta para Home */}
           <Route path="/home" element={<Home />} />
           
@@ -29,6 +32,9 @@ function App() {
           
           {/* Ruta para la nueva pantalla con la tabla */}
           <Route path="/TablaaDatos" element={<TablaaDatos />} /> {/* Nueva ruta para la tabla */}
+          <Route path="/Desajustes" element={<Desajustes />} /> 
+          <Route path="/Sexpediente" element={<Sexpediente/>} /> 
+
         </Routes>
         <Footer />
       </div>

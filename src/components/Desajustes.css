@@ -1,0 +1,153 @@
+/* Desajustes.css */
+.desajustes-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  color: #1f4c39; /* Rosa fuerte */
+  font-size: 2em;
+  
+  margin-bottom: 30px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.pastel-button {
+  background: linear-gradient(to right, #18943b, #adfaa3); /* Colores pastel en degradado */
+  border: 2px solid #fbfffb; /* Se mantiene el borde rosa fuerte */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 20px;
+
+  /* Centrado del texto dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Esto asegura que el texto se centra correctamente en altura */
+  height: 40px;
+  width: auto;
+}
+
+.pastel-button:hover {
+  background: linear-gradient(to right, #35e00e, #93fe89); /* Inversión del degradado al pasar el mouse */
+}
+
+.tabla-desajustes {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-desajustes th, .tabla-desajustes td {
+  padding: 12px;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid rgb(21, 74, 4);
+}
+
+.tabla-desajustes th {
+  background-color: #167555; 
+  color: white;
+  font-weight: bold;
+}
+
+.tabla-desajustes td {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.tabla-desajustes tr:nth-child(even) td {
+  background-color: rgb(235, 255, 234);
+}
+
+
+.tabla-desajustes select {
+  background-color: #fce4ec;
+  color: #333;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.tabla-desajustes select:focus {
+  outline: none;
+  border-color: #670505;
+}
+
+@media (max-width: 768px) {
+  .tabla-desajustes th, .tabla-desajustes td {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabla-desajustes {
+    font-size: 0.8em;
+  }
+}
+
+button {
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #ccc;
+  margin: 2px;
+}
+
+button.selected {
+  background-color: #167555;
+  color: white;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+
+
+.btn-siguiente {
+  background: linear-gradient(to right, #18943b, #adfaa3); /* Colores pastel en degradado */
+  border: 2px solid #fbfffb; /* Se mantiene el borde rosa fuerte */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 20px;
+
+  /* Centrado del texto dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Esto asegura que el texto se centra correctamente en altura */
+  height: 40px;
+  width: auto;
+}
+
+.pastel-button:hover {
+  background: linear-gradient(to right, #35e00e, #93fe89); /* Inversión del degradado al pasar el mouse */
+}
+
+
+
