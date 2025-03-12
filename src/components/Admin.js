@@ -1,37 +1,47 @@
-import React from "react";
-import "./Admin.css"; // Importamos los estilos
+import React, { useRef } from 'react';
+import './Admin.css';
 
 const Admin = () => {
+  // Usamos useRef para crear una referencia al campo de búsqueda
+  const searchInput = useRef(null);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+    // Accedemos al valor del campo de búsqueda a través de la referencia
+    const query = searchInput.current.value;
+    console.log("Buscando:", query);
+
+    // Aquí puedes agregar la lógica para realizar una búsqueda real.
+  };
+
   return (
     <div className="admin-container">
-      {/* Header */}
-      <header className="header">
-        <div className="logo">Departamento de Desarrollo Academico</div>
-        <nav className="nav">
-          <a href="#" className="nav-link">Expediente</a>
-          <a href="#" className="nav-link">Creditos Complementarios</a>
-          <a href="#" className="nav-link">Bajas </a>
-          <a href="#" className="nav-link">Tutores</a>
-      
-          <a href="#" className="nav-link">Accede</a>
-          <a href="#" className="register">Regístrate</a>
-        </nav>
-      </header>
+      {/* Barra de navegación */}
+      <nav className="navbar">
+        <ul className="navbar-menu">
+          <li><a href="#contenedor1">Expediente</a></li>
+          <li><a href="#contenedor2">Créditos complementarios</a></li>
+          <li><a href="#contenedor3">Bajas</a></li>
+          <li><a href="#contenedor4">Tutores</a></li>
+        </ul>
+      </nav>
 
-      {/* Banner Principal */}
-      <section className="banner">
-        <h1>Bienvenido Administrador</h1>
-        <p>¡Tienes más de 14.000 proveedores para elegir!</p>
-
-        <div className="search-box">
-          <input type="text" placeholder="¿Qué buscas?" />
-          <input type="text" placeholder="¿Dónde?" />
-          <button>Buscar</button>
-        </div>
-      </section>
+      {/* Buscador */}
+      <div className="search-container">
+        <form onSubmit={handleSearchSubmit} className="search-form">
+          <input
+            type="text"
+            placeholder="Ingresa Numero de control"
+            ref={searchInput} // Asociamos el input con la referencia
+            className="search-input"
+          />
+          
+        </form>
+      </div>
 
      
-      
+        
     </div>
   );
 };

@@ -1,12 +1,10 @@
-/* src/components/Home.css */
-
 /* Contenedor principal de la página */
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f7fc;  /* Fondo */
+  background-color: #1f4c39;
 }
 
 /* Contenedor de la imagen a la izquierda */
@@ -32,23 +30,46 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column; /* Los elementos dentro de este contenedor se apilarán de arriba a abajo */
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center;  /* Centra los elementos horizontalmente */
+  gap: 20px;  /* Espacio entre los elementos dentro de content-container */
+}
+
+/* Contenedor de botones (para que estén alineados horizontalmente) */
+.button-container {
+  display: flex;
+  justify-content: center;  /* Centra los botones horizontalmente */
+  gap: 20px; /* Espacio entre los botones */
+  width: auto;  /* Ajusta el ancho del contenedor a los botones */
 }
 
 /* Estilo de los botones */
 .popup-btn {
-  width: 200px;
-  height: 50px;
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
+  background: linear-gradient(to right, #18943b, #adfaa3); /* Colores pastel en degradado */
+  border: 2px solid #fbfffb; /* Se mantiene el borde rosa fuerte */
+  padding: 10px 20px;
+  font-size: 1rem;
   color: white;
-  background-color: #4CAF50;  /* Verde */
-  border: none;
-  border-radius: 12px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s ease;
+  
+  /* Centrado del texto dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Esto asegura que el texto se centra correctamente en altura */
+  height: 40px;
+  width: auto;
 }
 
 .popup-btn:hover {
-  background-color: #388e3c;  /* Verde más oscuro al pasar el cursor */
+  transform: translateY(-3px); /* Efecto de desplazamiento hacia arriba */
+  box-shadow: 0 6px 12px rgba(39, 255, 28, 0.6); /* Aumenta la sombra para dar un efecto de elevación */
+  opacity: 0.9; /* Ligera transparencia en hover */
 }
+

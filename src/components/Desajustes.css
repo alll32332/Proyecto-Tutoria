@@ -3,7 +3,7 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #1f4c39;
 }
 
 h1 {
@@ -41,9 +41,7 @@ h1 {
   width: auto;
 }
 
-.pastel-button:hover {
-  background: linear-gradient(to right, #35e00e, #93fe89); /* Inversión del degradado al pasar el mouse */
-}
+
 
 .tabla-desajustes {
   width: 100%;
@@ -144,9 +142,11 @@ button:hover {
   height: 40px;
   width: auto;
 }
-
-.pastel-button:hover {
-  background: linear-gradient(to right, #35e00e, #93fe89); /* Inversión del degradado al pasar el mouse */
+.btn-siguiente{
+  background-color: #45a049;
+  transform: translateY(-3px); /* Efecto de desplazamiento hacia arriba */
+  box-shadow: 0 6px 12px rgba(39, 255, 28, 0.6); /* Aumenta la sombra para dar un efecto de elevación */
+  opacity: 0.9; /* Ligera transparencia en hover */
 }
 
 

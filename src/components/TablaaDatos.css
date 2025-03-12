@@ -5,6 +5,7 @@
     text-align: center;
     margin-top: 50px; /* Aumenté la separación superior para dar más espacio entre la tabla y el Header */
     margin-bottom: 50px; /* Añadí separación inferior para dar más espacio con el Footer */
+    
   }
   
   /* Estilos para la tabla */
@@ -23,13 +24,13 @@
   
   /* Estilo para los encabezados de la tabla */
   .tabla th {
-    background-color: hwb(300 53% 46%);
+    background-color:  #167555;
     font-weight: bold;
   }
   
   /* Estilo para las filas pares de la tabla */
   .tabla tr:nth-child(even) {
-    background-color:  #1f4c39; ;
+    background-color:  #1f4c39; 
   }
   
   /* Estilo para el hover en las filas */
@@ -47,28 +48,68 @@
   
   /* Botón de guardar */
   .guardar-btn, .siguiente-btn {
-    padding: 20px 20px;
-    border: none;
-    border-radius: 25px; /* Bordes redondeados para un efecto más suave */
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
+    background: linear-gradient(to right, #18943b, #adfaa3); /* Colores pastel en degradado */
+  border: 2px solid #fbfffb; /* Se mantiene el borde rosa fuerte */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 20px;
+
+  /* Centrado del texto dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
   
   /* Estilo del botón "Guardar" */
   .guardar-btn {
-    background: linear-gradient(45deg, #ff7eb9, #ff65a3, #ff577f); /* Degradado rosa */
-    color: white;
-    box-shadow: 0 4px 6px rgba(255, 87, 132, 0.4); /* Sombra suave */
-  }
+  background: linear-gradient(to right, #18943b, #adfaa3); /* Colores pastel en degradado */
+  border: 2px solid #fbfffb; /* Se mantiene el borde rosa fuerte */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 20px;
+
+  /* Centrado del texto dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Esto asegura que el texto se centra correctamente en altura */
+  height: 40px;
+  width: auto;
+}
+
   
   /* Estilo del botón "Siguiente" */
   .siguiente-btn {
-    background: linear-gradient(45deg, #ff77b8, #ff6fb4, #ff5b94); /* Degradado rosa */
-    color: white;
-    box-shadow: 0 4px 6px rgba(39, 255, 28, 0.6); /* Sombra suave */
-  }
+  background: linear-gradient(to right, #18943b, #adfaa3); /* Colores pastel en degradado */
+  border: 2px solid #fbfffb; /* Se mantiene el borde rosa fuerte */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 20px;
+
+  /* Centrado del texto dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Esto asegura que el texto se centra correctamente en altura */
+  height: 40px;
+  width: auto;
+}
+
+  
   
   /* Efecto hover para los botones */
   .guardar-btn:hover, .siguiente-btn:hover {

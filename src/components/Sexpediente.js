@@ -3,9 +3,6 @@ import './Expediente.css';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
-
 const Expediente = () => {
   
   const [formData, setFormData] = useState({
@@ -28,7 +25,7 @@ const Expediente = () => {
 
   // Función para manejar el clic en el botón "Siguiente"
   const handleNextClick = () => {
-    navigate('/admin'); // Redirige a la página '/admin'
+    navigate(); // Redirige a la página '/admin'
   };
 
 
@@ -38,11 +35,6 @@ const Expediente = () => {
         <h2>Formulario de Expediente</h2>
         
       </div>
-
-
-      
-        
-
       
 
       {/* Formulario con campos */}
@@ -312,7 +304,7 @@ const Expediente = () => {
   />
 </div>
 
-{/* Sección para la tabla rosa */}
+{/* Sección para Recuadro Verde */}
 <div className="table-section">
         <h2>Area social</h2>
       </div>

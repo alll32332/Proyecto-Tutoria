@@ -1,34 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Importamos useNavigate
-import './Expediente.css';  // Importa el archivo CSS
+import './Expe.css';  // Importa el archivo CSS
 
 const Expediente = () => {
   const [formData, setFormData] = useState({
     nombre: '',
     estatura: '',
     carrera: '',
-    peso: '',
-    fechaNacimiento: '',
-    sexo: '',
-    edad: '',
-    estadoCivil: '',
-    lugarNacimiento: '',
-    domicilioActual: '',
-    telefono: '',
-    cp: '',
-    email: '',
-    tipoVivienda: '',
-    viviendaEstado: '',  
-    numeroPersonas: '',  
-    parentesco: '',  
-    nombrePadre: '',  
-    edadPadre: '',  
-    trabajaPadre: '',
-    profesionMadre: '',   // Nuevo campo
-    tipoTrabajoMadre: '', // Nuevo campo
-    domicilioMadre: '',   // Nuevo campo
-    telefonoMadre: '',    // Nuevo campo
-    foto: null // Nuevo campo para la imagen
+    
   });
 
   const navigate = useNavigate();  // Redirección después de enviar el formulario
@@ -63,9 +42,15 @@ const Expediente = () => {
     navigate('/TablaaDatos');  // Esto redirige a la ruta '/tabla' (puedes cambiarla por la que desees)
   };
 
+
+
+
   return (
-    <div className="expediente-container">
-      <h1>Formulario de Expediente</h1>
+<div className="expediente-container">
+      <div className="table-section">
+        <h2>Expediente</h2>
+        
+      </div>
       <form className="expediente-form" onSubmit={handleSubmit}>
         {/* Campos existentes */}
         <div className="input-group">
@@ -394,8 +379,20 @@ const Expediente = () => {
 
         <button type="submit" className="submit-btn">Enviar</button>
       </form>
-    </div>
-  );
+
+      </div>
+
+
+
+
+
+
+
+
+
+    );
 };
+
+
 
 export default Expediente;
