@@ -1,65 +1,74 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';  // Importamos Link y useNavigate
+import { useNavigate, Link } from 'react-router-dom'; 
 import './Login.css';
-
+import { loginUser } from '../utils/api';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();  // Creamos una instancia de useNavigate
+  const [credentials, setCredentials] = useState({
+    controlNumber: '',
+    password: '',
+  });
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verificar si los campos están completos
-    
-    if (!email || !password) {
-      setError('Por favor, ingresa todos los campos.');
+    if (!credentials.controlNumber || !credentials.password) {
+      alert('Por favor, completa todos los campos.');
       return;
     }
 
-    // Lógica de autenticación (puedes agregar aquí una llamada a una API)
-    setError('');
+    try {
+      const response = await loginUser(credentials);
+      alert('Inicio de sesión exitoso!');
+      console.log('Respuesta del servidor:', response);
+      localStorage.setItem('token', response.token); // Guardar token JWT
 
-    // Mostrar un mensaje en la consola en lugar de un alert
-    console.log('Inicio de sesión exitoso!');
-    
-    // Redirigir inmediatamente a la página de inicio (Home) sin esperar a que se cierre el alert
-    navigate('/home');  // Redirige a la página "/home"
+      navigate('/home');
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
-        <h2>Iniciar sesión</h2>
-        {error && <div className="error-message">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="email">Correo electrónico</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              placeholder="Introduce tu correo"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="password">Contraseña</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="Introduce tu contraseña"
-            />
-          </div>
-          <button type="submit" className="submit-btn">Iniciar sesión</button>
-        </form>
-
+      <h2>Iniciar Sesión</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+          <label htmlFor="controlNumber">Número de control</label>
+          <input
+            type="text"
+            id="controlNumber"
+            name="controlNumber"
+            value={credentials.controlNumber}
+            onChange={handleChange}
+            required
+            placeholder="Ingresa tu número de control"
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+            placeholder="Ingresa tu contraseña"
+          />
+        </div>
+        <button type="submit" className="submit-btn">Iniciar Sesión</button>
+      </form>
         {/* Aquí agregamos el enlace para el registro */}
         <div className="register-link">
           <p>¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link></p>
