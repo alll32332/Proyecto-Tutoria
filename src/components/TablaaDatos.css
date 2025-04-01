@@ -28,11 +28,6 @@
     font-weight: bold;
   }
   
-  /* Estilo para las filas pares de la tabla */
-  .tabla tr:nth-child(even) {
-    background-color:  #1f4c39; 
-  }
-  
   /* Estilo para el hover en las filas */
   .tabla tr:hover {
     background-color: #f1f1f1;

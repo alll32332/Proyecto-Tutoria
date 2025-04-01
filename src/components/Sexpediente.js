@@ -1,31 +1,57 @@
 import React, { useState } from 'react';
 import './Expediente.css';
 import { useNavigate } from 'react-router-dom';
-
-
 const Expediente = () => {
-  
   const [formData, setFormData] = useState({
-    p1: '',
-    p2: '',
-    trabajaPadre: '',
-    profesionMadre: '',
-    observacionesHigiene: '',
+    ingresosFamilia: '', // Inicializa el campo con valor vacío
+    ingresosIndependiente: '', 
+    estudios: '', // Estado para el campo de estudios
+    relacionFamilia: '', // Relación con la familia
+    dificultadTipo: '', // Dificultades
+    actitudFamilia: '', // Actitud hacia la familia
+    dificultadTipo2: '',
+    dificultadTipo3: '',
+    dificultadTipo4: '',
+    dificultadTipo5: '',
+    dificultadTipo6: '',
+    dificultadTipo7: '',
+    dificultadTipo8: '',
+    dificultadTipo9: '',
+    dificultadTipo10: '',
+    dificultadTipo11: '',
+    dificultadTipo12: '',
   });
-  const navigate = useNavigate(); // Inicializamos useNavigate
 
   // Función para manejar el cambio de valor de cada campo
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+  
+
+  // Si es el campo de ingresos, solo agrega el signo de pesos cuando se renderiza, no se aplica al escribir
+  if (name === "ingresosFamilia" || name === "ingresosIndependiente") {
+    // Solo se guarda el valor numérico en el estado, sin el signo de pesos
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value.replace(/[^0-9,]/g, ''), // Permitir solo números y comas
     });
-  };
+  } else {
+    // Para los campos de texto (como estudios), se permite texto libre
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+};
+  
+  
+  const navigate = useNavigate(); // Inicializamos useNavigate
+
+  
 
   // Función para manejar el clic en el botón "Siguiente"
   const handleNextClick = () => {
-    navigate(); // Redirige a la página '/admin'
+    navigate('/Caracteristicas'); // Redirige a la página cadmin'
   };
 
 
@@ -43,39 +69,39 @@ const Expediente = () => {
           <label htmlFor="p1">¿A cuánto ascienden los ingresos mensuales de tu familia?</label>
           <input
             type="text"
-            id="p1"
-            name="p1"
-            value={formData.p1}
+            id="ingresosFamilia"
+            name="ingresosFamilia"
+            value={`$${formData.ingresosFamilia}`}
             onChange={handleChange}
             required
+            placeholder="Ej: 5000" // Esto da una pista al usuario
           />
         </div>
 
         <div className="input-group">
           <label htmlFor="p2">En caso de ser económicamente independiente, ¿a cuánto asciende tu ingreso?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="ingresosIndependiente"
+            name="ingresosIndependiente"
+            value={`$${formData.ingresosIndependiente}`}
             onChange={handleChange}
             required
+            placeholder="Ej: 5000"
           />
         </div>
 
         <div className="input-group">
           <label htmlFor="trabajaPadre">¿Dónde realizaste tus estudios?</label>
-          <select
-            id="trabajaPadre"
-            name="trabajaPadre"
-            value={formData.trabajaPadre}
-            onChange={handleChange}
+          <input
+            type="text"
+            id="estudios"
+            name="estudios"
+            value={formData.estudios} // Aquí asignamos el valor desde el estado
+            onChange={handleChange} // Llamamos a la función que actualiza el estado
             required
-          >
-            <option value="">Seleccionar...</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-          </select>
+            placeholder="Ej: Escuela secundaria X"
+            />
         </div>
 
         {/* Nuevos campos */}
@@ -114,22 +140,23 @@ const Expediente = () => {
       <div className="input-group">
           <label htmlFor="p2">¿Como es la relación con tu familia?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="relacionFamilia"
+            name="relacionFamilia"
+            value={formData.relacionFamilia}
             onChange={handleChange}
             required
+            placeholder="Ej: Muy buena"
           />
         </div>
 
         <div className="input-group">
           <label htmlFor="p2">Existen dificultades ¿De que tipo?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="dificultadTipo"
+            name="dificultadTipo"
+            value={formData.dificultadTipo}
             onChange={handleChange}
             required
           />
@@ -138,22 +165,23 @@ const Expediente = () => {
         <div className="input-group">
           <label htmlFor="p2"> ¿Qué actitud tienes con tu familia?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="dificultadTipo2"
+            name="dificultadTipo2"
+            value={formData.dificultadTipo2}
             onChange={handleChange}
             required
+            placeholder="Ej: Muy buena"
           />
         </div>
 
         <div className="input-group">
           <label htmlFor="p2"> ¿Comó te relacionas con tu padre?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="dificultadTipo3"
+            name="dificultadTipo3"
+            value={formData.dificultadTipo3}
             onChange={handleChange}
             required
           />
@@ -162,10 +190,10 @@ const Expediente = () => {
         <div className="input-group">
           <label htmlFor="p2"> ¿Qué actitud tienes hacia tu padre?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="dificultadTipo4"
+            name="dificultadTipo4"
+            value={formData.dificultadTipo4}
             onChange={handleChange}
             required
           />
@@ -175,10 +203,10 @@ const Expediente = () => {
         <div className="input-group">
           <label htmlFor="p2"> ¿Comó te relacionas con tu madre?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="dificultadTipo5"
+            name="dificultadTipo5"
+            value={formData.dificultadTipo5}
             onChange={handleChange}
             required
           />
@@ -187,10 +215,10 @@ const Expediente = () => {
         <div className="input-group">
           <label htmlFor="p2"> ¿Qué actitud tienes hacia tu madre?</label>
           <input
-            type="number"
-            id="p2"
-            name="p2"
-            value={formData.p2}
+            type="text"
+            id="dificultadTipo6"
+            name="dificultadTipo6"
+            value={formData.dificultadTipo6}
             onChange={handleChange}
             required
           />
@@ -259,10 +287,10 @@ const Expediente = () => {
 <div className="input-group">
   <label htmlFor="ingresoIndependiente">Especifica ¿Por que?</label>
   <input
-    type="number"
-    id="ingresoIndependiente"
-    name="ingresoIndependiente"
-    value={formData.ingresoIndependiente}
+    type="text"
+    id="dificultadTipo7"
+    name="dificultadTipo7"
+    value={formData.dificultadTipo7}
     onChange={handleChange}
     required
   />
@@ -361,21 +389,24 @@ const Expediente = () => {
 <div className="input-group">
   <label htmlFor="hermanos">¿Cómo es tu relación con tu pareja?</label>
   <input
-    type="text"
-    id="hermanos"
-    name="hermanos"
-    value={formData.hermanos}
-    onChange={handleChange}
+  type="text"
+  id="dificultadTipo8"
+  name="dificultadTipo8"
+  value={formData.dificultadTipo8}
+  onChange={handleChange}
+  required
+    
   />
 </div>
 <div className="input-group">
   <label htmlFor="hermanos">¿Cómo es tu relación con tus maestros?</label>
   <input
     type="text"
-    id="hermanos"
-    name="hermanos"
-    value={formData.hermanos}
+    id="dificultadTipo9"
+    name="dificultadTipo9"
+    value={formData.dificultadTipo9}
     onChange={handleChange}
+    required
   />
 </div>
 
@@ -383,10 +414,11 @@ const Expediente = () => {
   <label htmlFor="hermanos">¿Cómo es tu relación con las autoridades académicas? </label>
   <input
     type="text"
-    id="hermanos"
-    name="hermanos"
-    value={formData.hermanos}
+    id="dificultadTipo10"
+    name="dificultadTipo10"
+    value={formData.dificultadTipo10}
     onChange={handleChange}
+    required
   />
 </div>
 
@@ -394,10 +426,11 @@ const Expediente = () => {
   <label htmlFor="hermanos">¿Qué haces en tu tiempo libre?</label>
   <input
     type="text"
-    id="hermanos"
-    name="hermanos"
-    value={formData.hermanos}
+    id="dificultadTipo11"
+    name="dificultadTipo11"
+    value={formData.dificultadTipo11}
     onChange={handleChange}
+    required
   />
 </div>
 
@@ -405,10 +438,11 @@ const Expediente = () => {
   <label htmlFor="hermanos">¿Cuál es tu actividad recreativa?</label>
   <input
     type="text"
-    id="hermanos"
-    name="hermanos"
-    value={formData.hermanos}
+    id="dificultadTipo12"
+    name="dificultadTipo12"
+    value={formData.dificultadTipo12}
     onChange={handleChange}
+    required
   />
 </div>
 

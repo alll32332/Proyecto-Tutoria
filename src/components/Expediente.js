@@ -29,7 +29,7 @@ const Expediente = () => {
     tipoTrabajoMadre: '', // Nuevo campo
     domicilioMadre: '', // Nuevo campo
     telefonoMadre: '', // Nuevo campo
-    foto: null, // Nuevo campo para la imagen
+    
   });
 
   const navigate = useNavigate(); // Redirección después de enviar el formulario
@@ -66,24 +66,24 @@ const Expediente = () => {
       formDataToSend.append(key, formData[key]);
     });
 
-    try {
-      const response = await axios.post('http://localhost:3000/api/student/profile', formDataToSend, {
-        headers: {
-          Authorization: Bearer ${token},
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log('Respuesta del servidor:', response.data);
-      alert('Expediente enviado exitosamente');
-    } catch (error) {
-      console.error('Error al enviar el expediente:', error);
-      alert('Error al enviar el expediente');
-    }
+   // try {
+   //   const response = await axios.post('http://localhost:3000/api/student/profile', formDataToSend, {
+   //     headers: {
+   //       Authorization: Bearer ${token},
+   //       'Content-Type': 'multipart/form-data',
+    //    },
+    //  });
+     // console.log('Respuesta del servidor:', response.data);
+     // alert('Expediente enviado exitosamente');
+   // } catch (error) {
+    //  console.error('Error al enviar el expediente:', error);
+    //  alert('Error al enviar el expediente');
+   // }
   };
 
   return (
     <div className="expediente-container">
-      <h1>Formulario de Expediente</h1>
+      <h11>Formulario de Expediente</h11>
       <form className="expediente-form" onSubmit={handleSubmit}>
         {/* Campos existentes */}
         <div className="input-group">
@@ -362,22 +362,9 @@ const Expediente = () => {
           />
         </div>
   
-         {/* Campo para subir la foto */}
-        <div className="input-group">
-          <label htmlFor="foto">Sube una foto</label>
-          <input type="file" id="foto" name="foto" onChange={handleImageChange} />
-        </div>
-
-        {/* Mostrar imagen seleccionada */}
-        {formData.foto && (
-          <div className="image-preview">
-            <img src={formData.foto} alt="Vista previa" />
-            <p>Vista previa de la imagen</p>
-          </div>
-        )}
-
+        
         {/* Botón de envío */}
-        <button type="submit">Enviar</button>
+        <button type=".BotonExpediente">Enviar</button>
       </form>
     </div>
   );
